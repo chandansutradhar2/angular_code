@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+interface User{
+  fName:string;
+  lName:string;
+  email:string;
+  password:string;
+  qualification:string;
+  employed:boolean;
+}
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +17,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+formGrp:FormGroup;
+  qualifications:string[]=[
+    "SSC- Secondary",
+    "HSC - Higher Secondary",
+    "Diploma",
+    "Graduate - Bachelor Degree",
+    "Master Degree",
+    "Post Graduate"
+  ];
+  constructor() { 
+    this.formGrp=new FormGroup({
+      fName: new FormControl('',[Validators.required]),
+      lName: new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.email,Validators.required]),
+      mobileNo:new FormControl('',[Validators.minLength(4),Validators.maxLength(12)]),
+      password:new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern(/([a-zA-Z0-9!@#$%^&*])+/)]),
+      qualification:new FormControl(''),
+      employed:new FormControl('')
+    })
+    //this.formGrp.controls['fName'].touched
   }
 
+  get form(){
+    return this.formGrp.controls;
+  }
+  ngOnInit(): void {
+    console.log(this.form);
+  }
+
+
+  submit(){
+    console.log(this.formGrp.value);
+  }
 }

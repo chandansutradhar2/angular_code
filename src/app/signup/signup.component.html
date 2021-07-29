@@ -1,1 +1,104 @@
-<h2>SignUp</h2>
+<div class="container">
+  <h2 style="padding-top: 20px; text-align: center">SignUp</h2>
+  <form [formGroup]="formGrp" novalidate>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Email</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+         <input
+          type="text"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': form.email.invalid && form.email.touched }"
+          formControlName="email"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="formGrp.get('email')?.hasError('required') && !formGrp.get('email')?.pristine "
+        >
+          Email cannot be blank
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="formGrp.get('email')?.hasError('email')"
+        >
+          Please enter valid email
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Password</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <div class="invalid-feedback">Please enter password</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">FirstName</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': formGrp.get('fName')?.invalid && formGrp.controls['fName'].touched}" formControlName="fName" />
+
+        <div class="invalid-feedback">Please enter FirstName</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">LastName</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" formControlName="lName" />
+        <div class="invalid-feedback">Please enter LastName</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label"
+        >Highest Qualification</label
+      >
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="qualification"
+        >
+          <option *ngFor="let q of qualifications" [value]="q">
+            {{ q }}
+          </option>
+        </select>
+        <div class="invalid-feedback">Please Select Qualification</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Currently Employed</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="employed"
+        >
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        <div class="invalid-feedback">Please enter password</div>
+      </div>
+    </div>
+  </form>
+  <button
+    style="margin-top: 15px"
+    type="button"
+    class="btn btn-primary"
+    (click)="submit()"
+    id="login"
+  >
+    CREATE ACCOUNT
+    <i class="bi bi-box-arrow-in-right"></i>
+  </button>
+</div>
+
+{{ formGrp.value | json }}
+Form State : {{ formGrp.valid }}
