@@ -13,13 +13,13 @@
         />
         <div
           class="invalid-feedback"
-          *ngIf="formGrp.get('email')?.hasError('required') && !formGrp.get('email')?.pristine "
+          *ngIf="form.email.hasError('required') && !form.email.pristine "
         >
           Email cannot be blank
         </div>
         <div
           class="invalid-feedback"
-          *ngIf="formGrp.get('email')?.hasError('email')"
+          *ngIf="form.email.hasError('email')"
         >
           Please enter valid email
         </div>
@@ -81,10 +81,18 @@
           aria-label="Default select example"
           formControlName="employed"
         >
-          <option value="true">Yes</option>
-          <option value="false">No</option>
+          <option [value]=true>Yes</option>
+          <option [value]=false>No</option>
         </select>
         <div class="invalid-feedback">Please enter password</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Company Name</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" formControlName="companyName" />
+        <div class="invalid-feedback">Please enter companyName</div>
       </div>
     </div>
   </form>
