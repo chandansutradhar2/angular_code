@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lms-app';
+  constructor(){
+    console.log("AppComponent loaded");
+  }
 }
