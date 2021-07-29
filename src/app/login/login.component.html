@@ -9,14 +9,15 @@
           <i class="icon ion-md-send"></i>
         </span>
         <input
+        (blur)="validate()"
         [(ngModel)]="email"
           type="email"
           class="form-control"
-          
+          [ngStyle]="border-color: red;"
           placeholder="name@example.com"
         />
-        <span class="invalid-feedback" id="err_email"></span>
       </div>
+      <div class="error">{{emailerr}}</div>
       <div class="input-group mb-6 has-validation">
         <span class="input-group-text" id="basic-addon1">
           <i class="icon ion-md-eye" (click)="togglePassword()"></i>
@@ -28,9 +29,9 @@
           
           placeholder="Password"
         />
-        <span class="invalid-feedback" id="err_email"></span>
+       
       </div>
-
+      <span class="error" id="err_email">{{passworderr}}</span>
       <button
         style="margin-top: 15px"
         type="button"
@@ -47,3 +48,4 @@
 
 <strong>{{email}}</strong>
 
+<div class="error">this is an error</div>
