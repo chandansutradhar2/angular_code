@@ -7,7 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lms-app';
+  isLoggedIn:boolean=true;
+  grossSalary:number=98888;
+  deduction:number=15000;
   constructor(){
+   
     console.log("AppComponent loaded");
+  }
+
+  toggleLogin(){
+    this.isLoggedIn?this.isLoggedIn=false:this.isLoggedIn=true;
   }
 }

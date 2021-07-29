@@ -1,5 +1,16 @@
-<cn-navbar></cn-navbar>
 
-<h1>App Component</h1>
+<div *ngIf="isLoggedIn">
+    <cn-navbar></cn-navbar>
+    <div class="cn-container"> 
+        <app-signup></app-signup>
+        <h1>App Component</h1>
+        <h2>Net Salary: {{grossSalary - deduction}}</h2>
+        <cn-second></cn-second>
+    </div>
+</div>
+<div *ngIf="!isLoggedIn">
+    <login></login>
+</div>
 
-<cn-second></cn-second>
+<button type="button" class="btn btn-primary" (click)="toggleLogin()">Login/Logout</button>
+<cn-footer></cn-footer>

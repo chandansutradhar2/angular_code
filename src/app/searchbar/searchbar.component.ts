@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cn-searchbar',
-  templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css']
+ template:`<form class="d-flex">
+ <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+ <button class="btn btn-outline-success" type="submit">Search</button>
+</form>`,
+  styles: []
 })
 export class SearchbarComponent implements OnInit {
 

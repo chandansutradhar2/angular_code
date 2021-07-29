@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SecondComponent } from './second/second.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SecondComponent,
     NavbarComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    LoginComponent,
+    SignupComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
