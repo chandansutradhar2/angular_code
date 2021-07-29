@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -16,8 +17,8 @@ export class LoginComponent implements OnInit {
   togglePassword(){
     console.log('password toggle clicked');
   }
-  login(){
-    alert('login clicked');
+  login(email:any,pass:any){
+    console.log(email.value,pass.value);
   }
 
 }

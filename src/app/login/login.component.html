@@ -9,6 +9,7 @@
           <i class="icon ion-md-send"></i>
         </span>
         <input
+        #email
           type="email"
           class="form-control"
           id="email"
@@ -21,6 +22,7 @@
           <i class="icon ion-md-eye" (click)="togglePassword()"></i>
         </span>
         <input
+        #pass
           type="password"
           class="form-control"
           id="password"
@@ -33,7 +35,7 @@
         style="margin-top: 15px"
         type="button"
         class="btn btn-primary"
-        (click)="login()"
+        (click)="login(email,pass)"
         id="login"
       >
         Login
