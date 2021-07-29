@@ -6,8 +6,12 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: fit-content;
+    width: 400px;
+    /*height: fit-content;*/
   }
   
+  .error{
+    font-size: small;
+    color: rgb(161, 16, 16);
+  }
   
