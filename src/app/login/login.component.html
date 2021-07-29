@@ -9,10 +9,10 @@
           <i class="icon ion-md-send"></i>
         </span>
         <input
-        #email
+        [(ngModel)]="email"
           type="email"
           class="form-control"
-          id="email"
+          
           placeholder="name@example.com"
         />
         <span class="invalid-feedback" id="err_email"></span>
@@ -22,10 +22,10 @@
           <i class="icon ion-md-eye" (click)="togglePassword()"></i>
         </span>
         <input
-        #pass
+        [(ngModel)]="password"
           type="password"
           class="form-control"
-          id="password"
+          
           placeholder="Password"
         />
         <span class="invalid-feedback" id="err_email"></span>
@@ -35,7 +35,7 @@
         style="margin-top: 15px"
         type="button"
         class="btn btn-primary"
-        (click)="login(email,pass)"
+        (click)="login()"
         id="login"
       >
         Login
@@ -44,3 +44,6 @@
     </div>
   </div>
 </div>
+
+<strong>{{email}}</strong>
+

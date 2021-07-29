@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+email:string="";
+password:string="";
   
   constructor() { }
 
@@ -17,8 +18,11 @@ export class LoginComponent implements OnInit {
   togglePassword(){
     console.log('password toggle clicked');
   }
-  login(email:any,pass:any){
-    console.log(email.value,pass.value);
+  login(){
+    console.log(this.email,this.password);
+    alert('login failed. pls try again');
+    this.email="";
+  
   }
 
 }
