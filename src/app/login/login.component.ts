@@ -12,4 +12,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  togglePassword(){
+    console.log('password toggle clicked');
+  }
+  login(){
+    alert('login clicked');
+  }
+
 }

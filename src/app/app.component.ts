@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lms-app';
-  isLoggedIn:boolean=true;
+  isLoggedIn:boolean=false;
   grossSalary:number=98888;
   deduction:number=15000;
   constructor(){

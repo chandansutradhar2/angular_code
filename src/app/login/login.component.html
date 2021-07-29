@@ -18,8 +18,7 @@
       </div>
       <div class="input-group mb-6 has-validation">
         <span class="input-group-text" id="basic-addon1">
-          
-          <i class="icon ion-md-eye"></i>
+          <i class="icon ion-md-eye" (click)="togglePassword()"></i>
         </span>
         <input
           type="password"
@@ -34,7 +33,7 @@
         style="margin-top: 15px"
         type="button"
         class="btn btn-primary"
-        onclick="login()"
+        (click)="login()"
         id="login"
       >
         Login
