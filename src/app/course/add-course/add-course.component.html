@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="fromGrp">
+  <form [formGroup]="formGrp">
     <div class="row">
       <div class="col">
         <mat-form-field class="full-width" appearance="outline">
@@ -43,6 +43,6 @@
         </div>
     </div>
     <button mat-flat-button>Cancel</button>
-    <button mat-raised-button color="primary" (click)="save()">Save</button>
+    <button mat-raised-button color="primary" [disabled]="formGrp.invalid" (click)="save()">Save</button>
   </form>
 </div>

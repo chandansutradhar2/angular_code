@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AddCourseComponent } from './course/add-course/add-course.component';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
 import { InstructorComponent } from './instructor/instructor.component';
@@ -18,18 +19,21 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-  },{
-    path:'aboutus',
-    component:AboutusComponent  
   },
   {
-    path:'course',
-    component:CourseComponent
+    path: 'aboutus',
+    component: AboutusComponent,
   },
   {
-    path:'instructor',
-    component:InstructorComponent
-  }
+    path: 'course',
+    component: CourseComponent,
+  },
+  { path: 'add-course', component: AddCourseComponent },
+
+  {
+    path: 'instructor',
+    component: InstructorComponent,
+  },
 ];
 
 //step 3: notifying the app.module with routing capabilities

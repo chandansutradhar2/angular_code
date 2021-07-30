@@ -41,4 +41,8 @@ export class DbService {
     // });
   }
 
+  addCourse(course:Course){
+    return this.db.collection('courses').add(course);
+  }
 }
+

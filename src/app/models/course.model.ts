@@ -4,4 +4,7 @@ export interface Course{
     duration:number;
     price:number;
     deliveryMode:string[];
+    enabled:boolean;
+    createdOn:number;
+    createdBy:string;
 }
