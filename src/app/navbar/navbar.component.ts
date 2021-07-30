@@ -12,6 +12,8 @@ interface INavList{
 
 
 export class NavbarComponent implements OnInit {
+
+searchTitle:string="Search";
     navoptions:INavList[]=[
         {name:'Home', url:''},
         {name:'About Us',url:'aboutus'},
@@ -25,4 +27,8 @@ export class NavbarComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void { }
+
+    setSerachTitle(name:string){
+        this.searchTitle="Search "+ name;
+    }
 }
