@@ -28,6 +28,7 @@ formGrp:FormGroup;
       qualification:new FormControl(''),
       employed:new FormControl(''),
       companyName:new FormControl(''),
+      role:new FormControl('student',Validators.required)
     })
     this.formGrp.controls['companyName'].disable();
     //this.formGrp.controls['fName'].touched
