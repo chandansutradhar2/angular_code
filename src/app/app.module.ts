@@ -11,11 +11,14 @@ import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
-import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
-import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 import { AlertDialogComponent } from './util/alert-dialog/alert-dialog.component';
 import { NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { CourseComponent } from './course/course.component';
+import { InstructorComponent } from './instructor/instructor.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     FooterComponent,
     AlertDialogComponent,
-    HomeComponent
+    HomeComponent,
+    AboutusComponent,
+    CourseComponent,
+    InstructorComponent
   ],
   imports: [
     BrowserModule,

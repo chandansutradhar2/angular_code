@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './shared/auth.service';
 
 @Component({
@@ -11,15 +12,19 @@ export class AppComponent {
   isLoggedIn:boolean=false;
   grossSalary:number=98888;
   deduction:number=15000;
-  constructor(private auth:AuthService){
+  constructor(private auth:AuthService,private router:Router){
    
     console.log("AppComponent loaded");
     auth.isAuthenticated().subscribe(r=>{
       if(r){
         //code to redirect to home page
+        router.navigate(['']);
       }else{
         //code to redirect to login page
+        router.navigate(['login'])
       }
+    },err=>{
+      router.navigate(['login']);
     })
   }
 

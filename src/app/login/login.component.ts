@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { AuthService } from '../shared/auth.service';
 import { DbService } from '../shared/db.service';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   formGrp:FormGroup;
   
-  constructor(private dbSvc:DbService,private authSvc:AuthService) { 
+  constructor(private dbSvc:DbService,private authSvc:AuthService,private router:Router) { 
     this.formGrp=new FormGroup({
       'email':new FormControl('',[Validators.required,Validators.email]),
       'password':new FormControl('',[Validators.required,Validators.minLength(6)]),
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
         let user:User=usr;
         console.log(user);
         alert('login successfull');
+        this.router.navigate(['aboutus']);
       },err=>alert(err));
     },err=>{
       alert(err);

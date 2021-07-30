@@ -13,10 +13,10 @@ interface INavList{
 
 export class NavbarComponent implements OnInit {
     navoptions:INavList[]=[
-        {name:'Home', url:'./home'},
-        {name:'About Us',url:'./aboutus'},
-        {name:'Courses',url:'./courses'},
-        {name:'Instructor',url:'./instructor'},
+        {name:'Home', url:''},
+        {name:'About Us',url:'aboutus'},
+        {name:'Courses',url:'course'},
+        {name:'Instructor',url:'instructor'},
         {name:'Our Location', url:'./offices'}
 
     ];
