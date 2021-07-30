@@ -71,7 +71,7 @@ export class SignupComponent implements OnInit {
             this.formGrp.reset();
             this.formGrp.controls['role'].setValue('student');
           })
-          .then((err) => {
+          .catch((err) => {
             console.log(err);
             alert('failed to save to db. pls try again');
           });
@@ -95,15 +95,6 @@ export class SignupComponent implements OnInit {
   }
 
   saveToDb(user: User) {
-    return new Promise((resolve, reject) => {
-      this.db
-        .collection('users').doc(user.uid).set(user)
-        .then((output) => {
-          resolve(true);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
+   return this.db.collection('users').doc(user.uid).set(user);
   }
 }
