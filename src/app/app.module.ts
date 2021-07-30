@@ -10,7 +10,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAM2qZmv1JVY8IApv-PFVoO0Ho3LSznv7o",
+      authDomain: "angular-lms-d1143.firebaseapp.com",
+      projectId: "angular-lms-d1143",
+      storageBucket: "angular-lms-d1143.appspot.com",
+      messagingSenderId: "580941436901",
+      appId: "1:580941436901:web:4fd2495391b3f40d16810c"
+    }),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-lms-d1143": {
+      "hosting": {
+        "lms-app": [
+          "angular-lms-d1143"
+        ]
+      }
+    }
+  }
+}

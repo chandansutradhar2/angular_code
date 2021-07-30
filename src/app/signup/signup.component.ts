@@ -49,6 +49,15 @@ formGrp:FormGroup;
 
   submit(){
     console.log(this.formGrp.value);
+    if(this.formGrp.invalid){
+      alert('form is incomplete. please correct error and resubmit');
+      return;
+    }else{
+      alert('form submitted successfully');
+      this.formGrp.reset();
+      this.formGrp.controls['role'].setValue('student');
+
+    }
     
   }
 }
