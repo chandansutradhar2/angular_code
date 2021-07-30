@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from '../models/course.model';
+import { DbService } from '../shared/db.service';
 
 @Component({
   selector: 'app-course',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseComponent implements OnInit {
 
-  constructor() { }
+  courses:Course[]=[];
+  constructor(private dbSvc:DbService) { 
+    this.dbSvc.getCourses().then((r)=>{
+      this.courses=r;
+    },err=>{
+      console.log(err);
+    })
+  }
 
   ngOnInit(): void {
   }
