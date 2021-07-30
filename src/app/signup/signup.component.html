@@ -95,6 +95,22 @@
         <div class="invalid-feedback">Please enter companyName</div>
       </div>
     </div>
+    <div class="col-md-4">
+      <label class="form-label">Select Role</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          formControlName="employed"
+        >
+          <option value="admin">Admin</option>
+          <option value="student" >Student</option>
+          <option value="instructor">Instructor</option>
+        </select>
+        <div class="invalid-feedback">Please enter password</div>
+      </div>
+    </div>
   </form>
   <button
     style="margin-top: 15px"
