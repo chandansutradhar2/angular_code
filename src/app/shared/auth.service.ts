@@ -13,11 +13,11 @@ export class AuthService {
 
   isAuthenticated():Observable<any>{
     return new Observable((obs)=>{
-      this.auth.authState.subscribe(r=>{
-        if(r){
-          obs.next(r);
+      this.auth.onAuthStateChanged((user)=>{
+        if(user){
+          obs.next(user)
         }else{
-          obs.error('not logged in');
+          obs.error('not logged in')
         }
       })
     })

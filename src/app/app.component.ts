@@ -10,25 +10,29 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent {
   title = 'lms-app';
   isLoggedIn:boolean=false;
-  grossSalary:number=98888;
-  deduction:number=15000;
+
   constructor(private auth:AuthService,private router:Router){
    
-    console.log("AppComponent loaded");
+    
     auth.isAuthenticated().subscribe(r=>{
+      console.log("isAuthenticated Event Recieved");
       if(r){
         //code to redirect to home page
-        router.navigate(['']);
+        this.isLoggedIn=true;
+        console.log('user already logged in', this.isLoggedIn);
+        //router.navigate(['']);
+        this.isLoggedIn=true;
+       console.log(this.isLoggedIn);
       }else{
         //code to redirect to login page
+        this.isLoggedIn=false;
         router.navigate(['login'])
       }
     },err=>{
       router.navigate(['login']);
+      this.isLoggedIn=false;
     })
   }
 
-  toggleLogin(){
-    this.isLoggedIn?this.isLoggedIn=false:this.isLoggedIn=true;
-  }
+
 }

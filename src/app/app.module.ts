@@ -20,6 +20,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { CourseComponent } from './course/course.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddCourseComponent } from './course/add-course/add-course.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -35,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     AboutusComponent,
     CourseComponent,
-    InstructorComponent
+    InstructorComponent,
+    AddCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireAuthModule,
     NgbModule,
     NgbAlertModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

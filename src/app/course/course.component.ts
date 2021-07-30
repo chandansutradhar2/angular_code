@@ -11,7 +11,7 @@ export class CourseComponent implements OnInit {
 
   courses:Course[]=[];
   constructor(private dbSvc:DbService) { 
-    this.dbSvc.getCourses().then((r)=>{
+    this.dbSvc.getCourses().subscribe((r:any)=>{
       this.courses=r;
     },err=>{
       console.log(err);

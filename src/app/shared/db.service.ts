@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Course } from '../models/course.model';
 import { User } from '../models/user.model';
 
@@ -23,20 +24,21 @@ export class DbService {
     })
   }
 
-  getCourses():Promise<Course[]>{
-    return new Promise((resolve,reject)=>{
-      this.db.collection('courses').get().subscribe(r=>{
-        if(r.docs){
-          let courses:Course[]=[];
-          r.forEach(ele=>{
-              courses.push(ele.data() as Course);
-          })
-          resolve(courses);
-        }else{
-          reject('empty courses collection');
-        }
-      })
-    });
+  getCourses(){
+    return this.db.collection('courses').valueChanges();  
+    // return new Promise((resolve,reject)=>{
+    //   this.db.collection('courses').get().subscribe(r=>{
+    //     if(r.docs){
+    //       let courses:Course[]=[];
+    //       r.forEach(ele=>{
+    //           courses.push(ele.data() as Course);
+    //       })
+    //       resolve(courses);
+    //     }else{
+    //       reject('empty courses collection');
+    //     }
+    //   })
+    // });
   }
 
 }
