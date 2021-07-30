@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-interface User{
-  fName:string;
-  lName:string;
-  email:string;
-  password:string;
-  qualification:string;
-  employed:boolean;
-}
 
 @Component({
   selector: 'app-signup',
@@ -56,5 +48,6 @@ formGrp:FormGroup;
 
   submit(){
     console.log(this.formGrp.value);
+    
   }
 }
