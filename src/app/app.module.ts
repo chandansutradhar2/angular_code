@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
+import { AlertDialogComponent } from './util/alert-dialog/alert-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
     SearchbarComponent,
     LoginComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,

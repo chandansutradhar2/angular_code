@@ -1,3 +1,5 @@
+
+<alert-dialog *ngIf="show" [msg]="popUpMsg"></alert-dialog>
 <div class="container">
   <h2 style="padding-top: 20px; text-align: center">SignUp</h2>
   <form [formGroup]="formGrp" novalidate>
@@ -130,6 +132,7 @@
     CREATE ACCOUNT
     <i class="bi bi-box-arrow-in-right"></i>
   </button>
+
 </div>
 
 {{ formGrp.value | json }}

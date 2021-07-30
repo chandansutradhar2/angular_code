@@ -19,6 +19,8 @@ export class SignupComponent implements OnInit {
     'Master Degree',
     'Post Graduate',
   ];
+  show:boolean=false;
+  popUpMsg:string="";
   constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
     this.formGrp = new FormGroup({
       fName: new FormControl('', [Validators.required]),
@@ -57,7 +59,8 @@ export class SignupComponent implements OnInit {
 
   submit() {
     if (this.formGrp.invalid) {
-      alert('form is incomplete. please correct error and resubmit');
+      this.show=true;
+      this.popUpMsg="Please fix all errors and resubmit the form";
       return;
     }
 
