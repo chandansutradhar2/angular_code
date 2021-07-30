@@ -1,5 +1,6 @@
 
-interface User{
+export interface User{
+    uid?:string;
     fName:string;
     lName:string;
     email:string;
