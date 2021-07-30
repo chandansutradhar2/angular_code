@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'alert-dialog',
@@ -9,9 +10,13 @@ export class AlertDialogComponent implements OnInit {
 
   @Input() msg:string="";
 
-  constructor() { }
+  constructor(private ngbAlert:NgbAlert) { }
 
   ngOnInit(): void {
+  }
+
+  close(){
+    this.ngbAlert.close();
   }
 
 }

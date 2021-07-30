@@ -14,6 +14,9 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
 import { AlertDialogComponent } from './util/alert-dialog/alert-dialog.component';
+import { NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +42,9 @@ import { AlertDialogComponent } from './util/alert-dialog/alert-dialog.component
       appId: "1:580941436901:web:4fd2495391b3f40d16810c"
     }),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgbModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

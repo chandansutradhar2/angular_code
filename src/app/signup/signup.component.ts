@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { User } from '../models/user.model';
 
 @Component({
@@ -59,8 +60,8 @@ export class SignupComponent implements OnInit {
 
   submit() {
     if (this.formGrp.invalid) {
+      this.popUpMsg="there is an error in form";
       this.show=true;
-      this.popUpMsg="Please fix all errors and resubmit the form";
       return;
     }
 

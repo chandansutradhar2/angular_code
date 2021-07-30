@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'login',
@@ -6,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-email:string="";
-password:string="";
-emailerr:string="";
-passworderr:string="";
+
+  formGrp:FormGroup;
   
-  constructor() { }
+  constructor() { 
+    this.formGrp=new FormGroup({
+      'email':new FormControl('',[Validators.required,Validators.email]),
+      'password':new FormControl('',[Validators.required,Validators.minLength(6)]),
+      
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -26,19 +31,12 @@ passworderr:string="";
 
   validate(){
     
-    if(this.email.length<=0){this.emailerr="email cannot be left blank"; return}else{
-      this.emailerr="";
-    }
-    let regex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if(regex.test(this.email)){
-      this.emailerr="";
-    }else{
-      this.emailerr="email format is incorrect"
-    }
+   
   }
 
   showSignUp(){
     
   }
+
+  
 }
