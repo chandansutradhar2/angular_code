@@ -4,6 +4,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { User } from '../models/user.model';
+import { AuthService } from '../shared/auth.service';
+import { DbService } from '../shared/db.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,7 +24,7 @@ export class SignupComponent implements OnInit {
   ];
   show:boolean=false;
   popUpMsg:string="";
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private db: DbService, private auth: AuthService) {
     this.formGrp = new FormGroup({
       fName: new FormControl('', [Validators.required]),
       lName: new FormControl('', [Validators.required]),
@@ -66,39 +68,16 @@ export class SignupComponent implements OnInit {
     }
 
     let user: User = this.formGrp.value;
-    this.createAccount(user.email, user.password)
-      .then((uid) => {
-        user.uid = uid;
-        this.saveToDb(user)
-          .then(() => {
-            alert('form submitted successfully');
-            this.formGrp.reset();
-            this.formGrp.controls['role'].setValue('student');
-          })
-          .catch((err) => {
-            console.log(err);
-            alert('failed to save to db. pls try again');
-          });
-      })
-      .catch((err) => {
-        alert('unable to create account');
-      });
+
+    this.auth.signUp(user.email,user.password).then((uid)=>{
+      user.uid=uid;
+      this.db.createUser(user).then(()=>{
+        alert('user created successfully');
+        this.formGrp.reset();
+        this.formGrp.controls['role'].setValue('student');
+      },err=>alert(err))
+    },err=>alert(err));
+
   }
 
-  createAccount(email: string, password: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.auth.createUserWithEmailAndPassword(email, password).then(
-        (res) => {
-          resolve(res.user?.uid);
-        },
-        (err) => {
-          reject(err);
-        }
-      );
-    });
-  }
-
-  saveToDb(user: User) {
-   return this.db.collection('users').doc(user.uid).set(user);
-  }
 }

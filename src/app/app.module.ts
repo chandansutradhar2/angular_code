@@ -15,6 +15,7 @@ import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore'
 import {AngularFireAuth, AngularFireAuthModule} from '@angular/fire/auth';
 import { AlertDialogComponent } from './util/alert-dialog/alert-dialog.component';
 import { NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     SignupComponent,
     FooterComponent,
-    AlertDialogComponent
+    AlertDialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

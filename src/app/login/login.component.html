@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Login here!</h1>
-  <div>
+  <form [formGroup]="formGrp">
     <div
       class="login-dialog shadow p-3 mb-5 bg-body rounded animate__backInDown"
     >
@@ -9,16 +9,14 @@
           <i class="icon ion-md-send"></i>
         </span>
         <input
-        
-        [(ngModel)]="email"
+        formControlName="email"
           type="email"
           class="form-control"
-          [style.border-color]="emailerr.length >0 ? 'red' : 'green'"
           placeholder="name@example.com"
         />
       </div>
-      <div class="error">Email Cannot be blank</div>
-      <div class="error">Email format is incorrect</div>
+      <div class="error" *ngIf="form.email.hasError('required') && form.email.touched">Email Cannot be blank</div>
+      <div class="error" *ngIf="form.email.hasError('email') && form.email.touched">Email format is incorrect</div>
       <div class="input-group mb-6 has-validation">
         <span class="input-group-text" id="basic-addon1">
           <i class="icon ion-md-eye" (click)="togglePassword()"></i>
@@ -27,9 +25,10 @@
           type="password"
           class="form-control"
           placeholder="Password"
+          formControlName="password"
         />
       </div>
-      <span class="error" id="err_email">{{passworderr}}</span>
+      <span class="error" *ngIf="form.password.hasError('minLength') && form.password.touched" >Password must be minimum of 6 character</span>
       <button
         style="margin-top: 15px"
         type="button"
@@ -41,9 +40,5 @@
         <i class="bi bi-box-arrow-in-right"></i>
       </button>
     </div>
-  </div>
+  </form>
 </div>
-
-<strong>{{email}}</strong>
-
-<div class="error">this is an error</div>
