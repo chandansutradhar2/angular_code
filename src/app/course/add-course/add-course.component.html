@@ -42,7 +42,7 @@
               </mat-form-field>
         </div>
     </div>
-    <button mat-flat-button>Cancel</button>
+    <button mat-flat-button (click)="cancel()">Cancel</button>
     <button mat-raised-button color="primary" [disabled]="formGrp.invalid" (click)="save()">Save</button>
   </form>
 </div>

@@ -13,6 +13,10 @@ export class CourseComponent implements OnInit {
   constructor(private dbSvc:DbService) { 
     this.dbSvc.getCourses().subscribe((r:any)=>{
       this.courses=r;
+      
+      this.courses.sort((a,b)=>{
+        return a.name < b.name?-1:1
+      });
     },err=>{
       console.log(err);
     })

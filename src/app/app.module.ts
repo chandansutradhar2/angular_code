@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import { AlertDialogComponent } from './util/alert-dialog/alert-dialog.component';
 import { NgbModule,NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -25,6 +24,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AlertDialogComponent } from './course/alert-dialog/alert-dialog.component';
+
 
 
 @NgModule({
@@ -41,7 +43,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AboutusComponent,
     CourseComponent,
     InstructorComponent,
-    AddCourseComponent
+    AddCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
