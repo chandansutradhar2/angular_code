@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { CourseComponent } from './course/course.component';
 import { InstructorComponent } from './instructor/instructor.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { InstructorComponent } from './instructor/instructor.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     NgbModule,
-    NgbAlertModule
+    NgbAlertModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
