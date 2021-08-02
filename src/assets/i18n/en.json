@@ -1,0 +1,12 @@
+{
+    "navbar":{
+        "title":"LMS | Angular",
+        "logout":"Logout",
+        "home":"Home",
+        "aboutus":"About Us",
+        "courses":"Courses",
+        "instructor":"Instructor",
+        "location":"Our Location"
+    
+    }
+}

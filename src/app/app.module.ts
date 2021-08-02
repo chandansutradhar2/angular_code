@@ -31,7 +31,13 @@ import { AlertDialogComponent } from './course/alert-dialog/alert-dialog.compone
 import { LoadingComponent } from './util/loading/loading.component';
 import { DisplayNameComponent } from './display-name/display-name.component';
 
+import {TranslateModule,TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -75,7 +81,17 @@ import { DisplayNameComponent } from './display-name/display-name.component';
     MatButtonModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    TranslateModule.forRoot({
+      defaultLanguage:'en',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+          
+      }
+  }),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

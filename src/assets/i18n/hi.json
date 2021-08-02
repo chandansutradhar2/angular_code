@@ -1,0 +1,11 @@
+{
+    "navbar":{
+        "title":"एलएमएस | Angular",
+        "logout":"लॉग आउट",
+        "home":"घर",
+        "aboutus":"हमारे बारे में",
+        "courses":"पाठ्यक्रम",
+        "instructor":"प्रशिक्षक",
+        "location":"हमारा स्थान"
+    }
+}
