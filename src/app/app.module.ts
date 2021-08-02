@@ -83,7 +83,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDialogModule,
     MatProgressSpinnerModule,
     TranslateModule.forRoot({
-      defaultLanguage:'en',
+      defaultLanguage:'hi',
       loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,

@@ -15,8 +15,8 @@
           placeholder="name@example.com"
         />
       </div>
-      <div class="error" *ngIf="form.email.hasError('required') && form.email.touched">Email Cannot be blank</div>
-      <div class="error" *ngIf="form.email.hasError('email') && form.email.touched">Email format is incorrect</div>
+      <div class="error" *ngIf="form.email.hasError('required') && form.email.touched">{{'login.emailblank'| translate}}</div>
+      <div class="error" *ngIf="form.email.hasError('email') && form.email.touched">{{'login.emailformat' | translate}}</div>
       <div class="input-group mb-6 has-validation">
         <span class="input-group-text" id="basic-addon1">
           <i class="icon ion-md-eye" (click)="togglePassword()"></i>

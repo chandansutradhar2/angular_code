@@ -7,6 +7,12 @@
         "courses":"Courses",
         "instructor":"Instructor",
         "location":"Our Location"
-    
+    },
+    "app":{
+
+    },
+    "login":{
+        "emailblank":"Email cannot be left blank",
+        "emailformat":"Email format is incorrect"
     }
 }
