@@ -7,7 +7,7 @@ import { LoadingService } from './util/loading.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[LoadingService]
+  
 })
 export class AppComponent {
   title = 'lms-app';

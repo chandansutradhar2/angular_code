@@ -11,7 +11,7 @@ import { LoadingService } from '../util/loading.service';
 })
 export class DbService {
 
-  constructor(private db:AngularFirestore,private loadingSvc:LoadingService) { }
+  constructor(private db:AngularFirestore) { }
 
   createUser(user:User){
     return this.db.collection('users').doc(user.uid).set(user);
