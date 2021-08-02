@@ -29,6 +29,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertDialogComponent } from './course/alert-dialog/alert-dialog.component';
 import { LoadingComponent } from './util/loading/loading.component';
+import { DisplayNameComponent } from './display-name/display-name.component';
 
 
 
@@ -48,6 +49,7 @@ import { LoadingComponent } from './util/loading/loading.component';
     InstructorComponent,
     AddCourseComponent,
     LoadingComponent,
+    DisplayNameComponent,
     
   ],
   imports: [

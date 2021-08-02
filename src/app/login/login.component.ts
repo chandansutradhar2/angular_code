@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { AuthService } from '../shared/auth.service';
 import { DbService } from '../shared/db.service';
+import { StateService } from '../shared/state.service';
 
 @Component({
   selector: 'login',
@@ -16,10 +17,11 @@ export class LoginComponent implements OnInit {
 
   formGrp:FormGroup;
   
-  constructor(private dbSvc:DbService,private authSvc:AuthService,private router:Router) { 
-    this.formGrp=new FormGroup({
-      'email':new FormControl('',[Validators.required,Validators.email]),
-      'password':new FormControl('',[Validators.required,Validators.minLength(6)]),
+  constructor(private fb:FormBuilder,private dbSvc:DbService,private authSvc:AuthService,private router:Router,private stateSvc:StateService) { 
+    this.formGrp=fb.group({
+      'email':['',[Validators.required,Validators.email]],
+      'password':['',[Validators.required]]
+      
     })
   }
 
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
         let user:User=usr;
         console.log(user);
         alert('login successfull');
+        this.stateSvc.user=user;
         this.router.navigate(['aboutus']);
       },err=>alert(err));
     },err=>{

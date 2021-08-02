@@ -1,4 +1,6 @@
 
-<cn-navbar></cn-navbar>
+<cn-navbar [title]="'LMS | Angular'" (onLogoutClick)="logoutHandler($event)"></cn-navbar>
 <!-- <loading></loading> -->
 <router-outlet></router-outlet>
+
+

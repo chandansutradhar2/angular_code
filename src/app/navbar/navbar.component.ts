@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 interface INavList{
     name:string;
@@ -23,12 +24,19 @@ searchTitle:string="Search";
 
     ];
 
-    title:string="LMS | Angular";
+  @Input()  title:string="";//to recieve data cfrom parent
+  @Output() onLogoutClick:EventEmitter<string>=new EventEmitter(); //to pass data to parent
     constructor() { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        console.log(this.title);
+     }
 
     setSerachTitle(name:string){
         this.searchTitle="Search "+ name;
+    }
+
+    doLogout(){
+        this.onLogoutClick.emit("Logout clicked");
     }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './shared/auth.service';
+import { DbService } from './shared/db.service';
+import { StateService } from './shared/state.service';
 import { LoadingService } from './util/loading.service';
 
 @Component({
@@ -10,17 +12,19 @@ import { LoadingService } from './util/loading.service';
   
 })
 export class AppComponent {
-  title = 'lms-app';
+
   isLoggedIn:boolean=false;
 
-  constructor(private auth:AuthService,private router:Router){
+  constructor(private auth:AuthService,private router:Router,private stateSvc:StateService,private dbSvc:DbService){
    
-    
     auth.isAuthenticated().subscribe(r=>{
       console.log("isAuthenticated Event Recieved");
       if(r){
         //code to redirect to home page
+        
         this.isLoggedIn=true;
+        this.dbSvc.getUserById(r.uid).
+        then((usr)=>this.stateSvc.user=usr);
         console.log('user already logged in', this.isLoggedIn);
         //router.navigate(['']);
         this.isLoggedIn=true;
@@ -36,5 +40,10 @@ export class AppComponent {
     })
   }
 
+
+  logoutHandler(ev:any){
+    console.log(ev);
+    this.auth.signOut();
+  }
 
 }

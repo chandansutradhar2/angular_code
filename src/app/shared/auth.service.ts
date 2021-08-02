@@ -22,6 +22,7 @@ export class AuthService {
       })
     })
   }
+
   signIn(email:string,password:string):Promise<string>{
     return new Promise((resolve,reject)=>{
       this.auth.signInWithEmailAndPassword(email,password).then(r=>{
