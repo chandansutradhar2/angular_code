@@ -4,13 +4,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course.model';
 import { User } from '../models/user.model';
+import { LoadingService } from '../util/loading.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
 
-  constructor(private db:AngularFirestore) { }
+  constructor(private db:AngularFirestore,private loadingSvc:LoadingService) { }
 
   createUser(user:User){
     return this.db.collection('users').doc(user.uid).set(user);

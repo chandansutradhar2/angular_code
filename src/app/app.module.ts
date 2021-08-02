@@ -24,8 +24,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertDialogComponent } from './course/alert-dialog/alert-dialog.component';
+import { LoadingComponent } from './util/loading/loading.component';
 
 
 
@@ -44,6 +47,8 @@ import { AlertDialogComponent } from './course/alert-dialog/alert-dialog.compone
     CourseComponent,
     InstructorComponent,
     AddCourseComponent,
+    LoadingComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,8 @@ import { AlertDialogComponent } from './course/alert-dialog/alert-dialog.compone
     MatSelectModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
