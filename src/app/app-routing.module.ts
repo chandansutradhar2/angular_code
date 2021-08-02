@@ -6,6 +6,7 @@ import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './shared/auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 //step 1: define a routing.module.ts
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   {
     path: 'instructor',
     component: InstructorComponent,
+    canActivate:[AuthGuardService]
   },
 ];
 
