@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Course } from '../models/course.model';
 import { DbService } from '../shared/db.service';
 
@@ -9,8 +10,9 @@ import { DbService } from '../shared/db.service';
 })
 export class CourseComponent implements OnInit {
 
+  selectedCourse!: Course;
   courses:Course[]=[];
-  constructor(private dbSvc:DbService) { 
+  constructor(private dbSvc:DbService,private router:Router) { 
     this.dbSvc.getCourses().subscribe((r:any)=>{
       this.courses=r;
       
@@ -25,4 +27,18 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelect(c:Course){
+    console.log(c);
+    this.selectedCourse=c;
+  }
+
+  redirect(){
+    if(!this.selectedCourse){
+      alert('please select a course first to edit');
+      return;
+    }
+    this.router.navigate(['course/add-course'],{
+      queryParams:{name:this.selectedCourse.name}
+    });
+  }
 }

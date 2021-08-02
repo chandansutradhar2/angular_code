@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/models/course.model';
 import { DbService } from 'src/app/shared/db.service';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
@@ -21,8 +21,35 @@ export class AddCourseComponent implements OnInit {
   formGrp: FormGroup;
 
   constructor(private fb: FormBuilder,private router:Router,private dialogSvc:MatDialog,
-    private dbSvc:DbService,private _snackBar: MatSnackBar) {
-    this.formGrp = fb.group({
+    private dbSvc:DbService,private _snackBar: MatSnackBar,private activatedRoute:ActivatedRoute) {
+      
+      this.activatedRoute.queryParams.subscribe(r=>{
+        console.log(r);
+        if(r && r.name){
+          //edit course
+          this.dbSvc.getCourseByName(r.name).then(res=>{
+            this.formGrp = fb.group({
+              name: [res.name, Validators.required],
+              description: [res.description, Validators.required],
+              duration: [res.duration,[Validators.required,Validators.min(1)]],
+              price:  [res.price,[Validators.required,Validators.min(1)]],
+              deliveryMode: [res.deliveryMode],
+            });
+          })
+          
+        }else{
+          //add course
+          this.formGrp = fb.group({
+            name: ['', Validators.required],
+            description: ['', Validators.required],
+            duration: ['',[Validators.required,Validators.min(1)]],
+            price:  ['',[Validators.required,Validators.min(1)]],
+            deliveryMode: '',
+          });
+        }
+      })
+
+      this.formGrp = fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
       duration: ['',[Validators.required,Validators.min(1)]],

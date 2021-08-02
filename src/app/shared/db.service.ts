@@ -1,4 +1,5 @@
 
+import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -44,6 +45,19 @@ export class DbService {
 
   addCourse(course:Course){
     return this.db.collection('courses').add(course);
+  }
+
+  getCourseByName(name:string):Promise<Course>{
+    return new Promise((resolve,reject)=>{
+      
+    return this.db.collection('courses',ref=>ref.where('name','==',name)).get().subscribe(r=>{
+      if(r.empty){
+        reject();
+      }else{
+       resolve(r.docs[0].data()as Course); 
+      }
+    });
+    });
   }
 }
 
