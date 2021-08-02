@@ -3,9 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { User } from '../models/user.model';
-import { AuthService } from '../shared/auth.service';
-import { DbService } from '../shared/db.service';
+import { User } from '../../models/user.model';
+import { AuthService } from '../../shared/auth.service';
+import { DbService } from '../../shared/db.service';
 
 @Component({
   selector: 'app-signup',

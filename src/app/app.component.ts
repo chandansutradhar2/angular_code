@@ -32,10 +32,10 @@ export class AppComponent {
       }else{
         //code to redirect to login page
         this.isLoggedIn=false;
-        router.navigate(['login'])
+        router.navigate(['auth/login'])
       }
     },err=>{
-      router.navigate(['login']);
+      router.navigate(['auth/login']);
       this.isLoggedIn=false;
     })
   }
