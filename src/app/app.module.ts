@@ -23,6 +23,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -37,9 +38,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     AboutusComponent,
     
-    InstructorComponent,
     LoadingComponent,
     DisplayNameComponent,
+    
     
   ],
   imports: [

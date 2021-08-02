@@ -9,10 +9,9 @@ export interface User{
     employed:boolean;
     companyName?:string;
     role:ROLE;
-    
   }
 
-  enum ROLE{
+  export enum ROLE{
       "admin"="admin",
       "instructor"="instructor",
       "student"="student"

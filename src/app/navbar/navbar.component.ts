@@ -17,11 +17,12 @@ export class NavbarComponent implements OnInit {
 
 searchTitle:string="Search";
     navoptions:INavList[]=[
-        {name:'', url:''},
+        {name:'', url:'home'},
         {name:'',url:'aboutus'},
         {name:'',url:'course'},
         {name:'',url:'instructor'},
-        {name:'', url:'./offices'}
+        {name:'', url:'./offices'},
+        {name:'',url:'admin'}
 
     ];
 
@@ -41,13 +42,14 @@ searchTitle:string="Search";
      }
 
      setNavView(){
-        this.translateSvc.get(['navbar.home','navbar.aboutus','navbar.courses','navbar.instructor','navbar.location']).subscribe(r=>{
+        this.translateSvc.get(['navbar.home','navbar.aboutus','navbar.courses','navbar.instructor','navbar.location','navbar.admin']).subscribe(r=>{
             console.log(r);
             this.navoptions[0].name=r["navbar.home"];
             this.navoptions[1].name=r["navbar.aboutus"];
             this.navoptions[2].name=r["navbar.courses"]
             this.navoptions[3].name=r["navbar.instructor"]
-            this.navoptions[4].name=r["navbar.location"]
+            this.navoptions[4].name=r["navbar.location"];
+            this.navoptions[5].name=r["navbar.admin"]
         })
         this.translateSvc.get('navbar.title').subscribe(r=>{
             console.log(r);
